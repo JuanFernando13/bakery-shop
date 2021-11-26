@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px 0;
+}
+.navRight {
+  display: flex;
+  align-items: center;
+}
+.navRight svg{
+  stroke: var(--primary-color)
+}
+.navRight span {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--quaternary-color);
+  background: var(--secondary-color);
+  font-size: 15px;
+  margin: 0 0 0 4px;
+}
+.navLeft h1 {
+  background: linear-gradient(94.77deg, var(--primary-color) -38.63%, var(--tertiary-color) 144.75%);
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
