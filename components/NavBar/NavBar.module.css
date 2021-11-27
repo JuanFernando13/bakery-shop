@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 32px 0;
+  margin-bottom: 32px;
 }
 .navRight {
   display: flex;

@@ -1,6 +1,6 @@
 import style from './ProductCard.module.css'
 import { useDispatch } from 'react-redux'
-import { addToCart, removeToCart } from '../../features/cart/cartReducer'
+import { addToCart } from '../../features/cart/cartReducer'
 
 export default function AddBtn({ add }) {
   const dispatch = useDispatch()

@@ -15,7 +15,7 @@ export default function Index() {
         </Link>
       </div>
       <div>
-        <Link href='/'>
+        <Link href='/cart'>
           <a className={style.navRight}>
             <Cart />
             <span>{amount}</span>
