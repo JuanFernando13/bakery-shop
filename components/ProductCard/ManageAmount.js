@@ -3,32 +3,37 @@ import { useState } from 'react'
 import Plus from '../icons/Plus'
 import Minus from '../icons/Minus'
 import { useDispatch } from 'react-redux'
-import { addToCart, removeToCart } from '../../features/cart/cartReducer'
+import {
+  incrementTotalAmount,
+  decrementTotalAmount
+} from '../../features/cart/amountReducer'
+import { addProduct, incrementAmount } from '../../features/cart/shopReducer'
 
-export default function ManageAmount({ unadd }) {
+export default function ManageAmount({ unadd, setProduct, product, id }) {
   const [amount, setAmount] = useState(1)
   const dispatch = useDispatch()
 
   const addAmount = () => {
     setAmount(amount + 1)
-    dispatch(addToCart())
+    dispatch(incrementTotalAmount())
+    dispatch(incrementAmount({ id, amount}))
   }
 
   const unaddAmount = () => {
     setAmount(amount - 1)
     amount === 1 && unadd()
-    dispatch(removeToCart())
+    dispatch(decrementTotalAmount())
   }
   return (
     <div className={style.manageContainer}>
       <button onClick={unaddAmount} className={style.unadd}>
-        <Minus/>
+        <Minus />
       </button>
       <div className={style.showAmount}>
         <span>{amount}</span>
       </div>
       <button className={style.add} onClick={addAmount}>
-        <Plus/>
+        <Plus />
       </button>
     </div>
   )

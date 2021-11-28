@@ -39,8 +39,16 @@
   color: var(--quaternary-color);
   font-weight: 400;
 }
-.addBtn {
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  height: 40px;
+  text-align: center;
+}
+.addBtn {
+  width: 60%;
   height: 40px;
   padding: 10px;
   cursor: pointer;
@@ -57,7 +65,7 @@
 }
 .manageContainer {
   display: flex;
-  width: 100%;
+  width: 60%;
   height: 40px;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +91,7 @@
   cursor: pointer;
 }
 .showAmount {
-  width: 65%;
+  width: 40%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -92,5 +100,14 @@
   font-size: 18px;
   border-radius: 10px;
   background: var(--primary-color);
-  color: var(--quaternary-color)
+  color: var(--quaternary-color);
+}
+.price {
+  font-size: 20px;
+  color: var(--secondary-color);
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

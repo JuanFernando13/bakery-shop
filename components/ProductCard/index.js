@@ -4,8 +4,15 @@ import { useState } from 'react'
 import AddBtn from './AddBtn'
 import ManageAmount from './ManageAmount'
 
-export default function ProductCard() {
+export default function ProductCard({ description, name, id }) {
   const [added, setAdded] = useState(false)
+  const [product, setProduct] = useState({
+    name: '',
+    imgUrl: '',
+    amount: 0,
+    description,
+    id
+  })
 
   const add = () => setAdded(true)
   const unadd = () => setAdded(false)
@@ -22,13 +29,22 @@ export default function ProductCard() {
           />
         </div>
         <div className={style.descProduct}>
-          <p>
-            Descripcion del producto que la persona desea compra la persona en
-            cuestion
-          </p>
+          <p>{description}</p>
         </div>
       </div>
-      {!added ? <AddBtn add={add} /> : <ManageAmount unadd={unadd} />}
+      <div className={style.options}>
+        {!added ? (
+          <AddBtn add={add} setProduct={setProduct} product={product} />
+        ) : (
+          <ManageAmount
+            unadd={unadd}
+            setProduct={setProduct}
+            product={product}
+            id={id}
+          />
+        )}
+        <h4 className={style.price}>$4.000</h4>
+      </div>
     </div>
   )
 }
