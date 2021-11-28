@@ -13,9 +13,9 @@
 }
 .navRight span {
   border-radius: 50%;
-  width: 25px;
+  min-width: 1em;
   height: 25px;
-  padding: 7px 10px;
+  padding: .5em;
   display: flex;
   align-items: center;
   justify-content: center;

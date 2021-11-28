@@ -4,7 +4,7 @@ import Cart from '../icons/Cart'
 import { useSelector } from 'react-redux'
 
 export default function Index() {
-  const amount = useSelector(state => state.cart.amount)
+  const { totalAmount } = useSelector(state => state.amount)
   return (
     <nav className={style.navbar}>
       <div className={style.navLeft}>
@@ -18,7 +18,7 @@ export default function Index() {
         <Link href='/cart'>
           <a className={style.navRight}>
             <Cart />
-            <span>{amount}</span>
+            <span>{totalAmount}</span>
           </a>
         </Link>
       </div>
