@@ -1,7 +1,6 @@
-
 import styleCard from '../ProductCard/ProductCard.module.css'
 
-export default function Button({ children, place }) {
+export default function Button({ children, place, y }) {
   return (
     <button
       className={styleCard.add}
@@ -10,7 +9,7 @@ export default function Button({ children, place }) {
         height: '50px',
         position: 'fixed',
         right: `${place ? place : '70px'}`,
-        top: '50%'
+        top: `${y ? y : '50%'}`
       }}
     >
       {children}

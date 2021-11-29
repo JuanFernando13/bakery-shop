@@ -1,10 +1,12 @@
 import RenderCards from '../RenderCards'
 import ProductCard from '../ProductCard'
+import style from './RenderCart.module.css'
 import Button from '../utils/Button'
 import Plus from '../icons/Plus'
 import Back from '../icons/Back'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
+import Pay from '../icons/Pay'
 
 export default function WithProducts() {
   const products = useSelector(state => state.product)
@@ -36,6 +38,12 @@ export default function WithProducts() {
           </a>
         </Link>
       </RenderCards>
+      <section className={style.payContainer}>
+        <h3 className={style.totalPay}>$40.000</h3>
+        <Button y='80vh'>
+          <Pay />
+        </Button>
+      </section>
     </>
   )
 }
