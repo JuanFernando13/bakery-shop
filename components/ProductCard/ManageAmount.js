@@ -7,30 +7,33 @@ import {
   incrementTotalAmount,
   decrementTotalAmount
 } from '../../features/cart/amountReducer'
+import { deleteProduct } from '../../features/cart/productReducer'
 
-export default function ManageAmount({ unadd }) {
-  const [amount, setAmount] = useState(1)
+export default function ManageAmount({ unaddAmount, product, addAmount }) {
   const dispatch = useDispatch()
 
-  const addAmount = () => {
-    setAmount(amount + 1)
+  const AddAmount = () => {
+    addAmount()
     dispatch(incrementTotalAmount())
   }
 
-  const unaddAmount = () => {
-    setAmount(amount - 1)
-    amount === 1 && unadd()
+  const unAddAmount = () => {
+    unaddAmount()
+    if (product.amount === 1) {
+      unaddAmount()
+      dispatch(deleteProduct(product))
+    }
     dispatch(decrementTotalAmount())
   }
   return (
     <div className={style.manageContainer}>
-      <button onClick={unaddAmount} className={style.unadd}>
+      <button onClick={unAddAmount} className={style.unadd}>
         <Minus />
       </button>
       <div className={style.showAmount}>
-        <span>{amount}</span>
+        <span>{product.amount}</span>
       </div>
-      <button className={style.add} onClick={addAmount}>
+      <button className={style.add} onClick={AddAmount}>
         <Plus />
       </button>
     </div>

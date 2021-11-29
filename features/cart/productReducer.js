@@ -8,10 +8,13 @@ export const productSlice = createSlice({
   reducers: {
     addProduct: (state, action) => {
       return [...state, action.payload]
-    }
+    },
+    deleteProduct: (state, action) => {
+      return state.filter(el => el.id !== action.payload.id)
+    },
   }
 })
 
-export const { addProduct } = productSlice.actions
+export const { addProduct, deleteProduct } = productSlice.actions
 
 export default productSlice.reducer

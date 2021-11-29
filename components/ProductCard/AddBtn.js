@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux'
 import { incrementTotalAmount } from '../../features/cart/amountReducer'
 import { addProduct } from '../../features/cart/productReducer'
 
-export default function AddBtn({ add, product }) {
+export default function AddBtn({ addAmount, product }) {
   const dispatch = useDispatch()
   const addCart = () => {
-    add()
+    addAmount()
     dispatch(incrementTotalAmount())
     dispatch(addProduct(product))
   }
