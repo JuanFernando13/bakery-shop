@@ -4,8 +4,10 @@ import Button from '../components/utils/Button'
 import Plus from '../components/icons/Plus'
 import Back from '../components/icons/Back'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
 
 export default function Cart() {
+  const products = useSelector(state => state.product)
   return (
     <>
       <h2
@@ -20,10 +22,9 @@ export default function Cart() {
         Carrito de Compras
       </h2>
       <RenderCards>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products.map(({ id, description }) => (
+          <ProductCard key={id} description={description} id={id} />
+        ))}
         <Button>
           <Plus />
         </Button>

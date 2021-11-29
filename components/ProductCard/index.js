@@ -9,7 +9,7 @@ export default function ProductCard({ description, name, id }) {
   const [product, setProduct] = useState({
     name: '',
     imgUrl: '',
-    amount: 0,
+    amount: 1,
     description,
     id
   })
@@ -33,7 +33,7 @@ export default function ProductCard({ description, name, id }) {
         </div>
       </div>
       <div className={style.options}>
-        {!added ? <AddBtn add={add} /> : <ManageAmount unadd={unadd} />}
+        {!added ? <AddBtn add={add} product={product}/> : <ManageAmount unadd={unadd} />}
         <h4 className={style.price}>$4.000</h4>
       </div>
     </div>

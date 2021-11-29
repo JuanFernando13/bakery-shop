@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  totalAmount: 0
+  totalAmount: 0,
+  product: {}
 }
 
 export const amountSlice = createSlice({
@@ -17,6 +18,7 @@ export const amountSlice = createSlice({
   }
 })
 
-export const { incrementTotalAmount, decrementTotalAmount } = amountSlice.actions
+export const { incrementTotalAmount, decrementTotalAmount } =
+  amountSlice.actions
 
 export default amountSlice.reducer
