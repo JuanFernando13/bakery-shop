@@ -3,9 +3,9 @@ import style from './ProductCard.module.css'
 import { useState } from 'react'
 import AddBtn from './AddBtn'
 import ManageAmount from './ManageAmount'
+import { useSelector } from 'react-redux'
 
-export default function ProductCard({ description, name, id, type = 'home' }) {
-  const [added, setAdded] = useState(type === 'home' ? false : true)
+export default function ProductCard({ description, name, id }) {
   const [product, setProduct] = useState({
     name: '',
     imgUrl: '',
@@ -14,8 +14,18 @@ export default function ProductCard({ description, name, id, type = 'home' }) {
     id
   })
 
-  const addAmount = () => setProduct({ ...product, amount: product.amount + 1 })
-  const unaddAmount = () => setProduct({ ...product, amount: product.amount - 1 })
+  const addAmount = () => setProduct({ ...product, amount: ++product.amount })
+  const unaddAmount = () => setProduct({ ...product, amount: --product.amount })
+
+  const { amount } = useSelector(state => {
+    if (state.product.length >= 1) {
+      const prot = state.product.filter(el => el.id === product.id)
+      return prot.length >= 1 ? prot[0] : 0
+    }
+    return 0
+  })
+
+  console.log(amount)
 
   return (
     <div className={style.card}>
@@ -33,13 +43,13 @@ export default function ProductCard({ description, name, id, type = 'home' }) {
         </div>
       </div>
       <div className={style.options}>
-        {product.amount < 1 ? (
+        {!amount ? (
           <AddBtn addAmount={addAmount} product={product} />
         ) : (
           <ManageAmount
             unaddAmount={unaddAmount}
             addAmount={addAmount}
-            product={product}
+            id={product.id}
           />
         )}
         <h4 className={style.price}>$4.000</h4>

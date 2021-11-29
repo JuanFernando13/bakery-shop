@@ -1,27 +1,38 @@
 import style from './ProductCard.module.css'
-import { useState } from 'react'
 import Plus from '../icons/Plus'
 import Minus from '../icons/Minus'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   incrementTotalAmount,
   decrementTotalAmount
 } from '../../features/cart/amountReducer'
-import { deleteProduct } from '../../features/cart/productReducer'
+import {
+  deleteProduct,
+  incrementAmount
+} from '../../features/cart/productReducer'
 
-export default function ManageAmount({ unaddAmount, product, addAmount }) {
+export default function ManageAmount({ unaddAmount, addAmount, id }) {
   const dispatch = useDispatch()
+
+  const { amount } = useSelector(state => {
+    if (state.product.length >= 1) {
+      const prot = state.product.filter(el => el.id === id)
+      return prot.length >= 1 ? prot[0] : 0
+    }
+    return 0
+  })
 
   const AddAmount = () => {
     addAmount()
     dispatch(incrementTotalAmount())
+    dispatch(incrementAmount({ id }))
   }
 
   const unAddAmount = () => {
     unaddAmount()
-    if (product.amount === 1) {
+    if (amount === 1) {
       unaddAmount()
-      dispatch(deleteProduct(product))
+      dispatch(deleteProduct({ id }))
     }
     dispatch(decrementTotalAmount())
   }
@@ -31,7 +42,7 @@ export default function ManageAmount({ unaddAmount, product, addAmount }) {
         <Minus />
       </button>
       <div className={style.showAmount}>
-        <span>{product.amount}</span>
+        <span>{amount}</span>
       </div>
       <button className={style.add} onClick={AddAmount}>
         <Plus />

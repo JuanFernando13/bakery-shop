@@ -14,8 +14,8 @@ export default function Home({ products }) {
         {products.map(({ _id, description }) => (
           <ProductCard key={_id} description={description} id={_id} />
         ))}
-        <Button >
-          <Plus/>
+        <Button>
+          <Plus />
         </Button>
       </RenderCards>
     </>

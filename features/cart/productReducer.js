@@ -12,9 +12,15 @@ export const productSlice = createSlice({
     deleteProduct: (state, action) => {
       return state.filter(el => el.id !== action.payload.id)
     },
+    incrementAmount: (state, action) => {
+      const product = state.find(el => el.id === action.payload.id)
+      product.amount = product.amount + 1
+      return state
+    }
   }
 })
 
-export const { addProduct, deleteProduct } = productSlice.actions
+export const { addProduct, deleteProduct, incrementAmount } =
+  productSlice.actions
 
 export default productSlice.reducer

@@ -25,7 +25,7 @@ export default function WithProducts() {
       </h2>
       <RenderCards>
         {products.map(({ id, description }) => (
-          <ProductCard key={id} description={description} id={id} type='cart' />
+          <ProductCard key={id} description={description} id={id} />
         ))}
         <Button>
           <Plus />
