@@ -7,16 +7,14 @@ import {
   incrementTotalAmount,
   decrementTotalAmount
 } from '../../features/cart/amountReducer'
-import { addProduct, incrementAmount } from '../../features/cart/shopReducer'
 
-export default function ManageAmount({ unadd, setProduct, product, id }) {
+export default function ManageAmount({ unadd }) {
   const [amount, setAmount] = useState(1)
   const dispatch = useDispatch()
 
   const addAmount = () => {
     setAmount(amount + 1)
     dispatch(incrementTotalAmount())
-    dispatch(incrementAmount({ id, amount}))
   }
 
   const unaddAmount = () => {

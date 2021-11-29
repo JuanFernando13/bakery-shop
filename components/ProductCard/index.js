@@ -33,16 +33,7 @@ export default function ProductCard({ description, name, id }) {
         </div>
       </div>
       <div className={style.options}>
-        {!added ? (
-          <AddBtn add={add} setProduct={setProduct} product={product} />
-        ) : (
-          <ManageAmount
-            unadd={unadd}
-            setProduct={setProduct}
-            product={product}
-            id={id}
-          />
-        )}
+        {!added ? <AddBtn add={add} /> : <ManageAmount unadd={unadd} />}
         <h4 className={style.price}>$4.000</h4>
       </div>
     </div>
