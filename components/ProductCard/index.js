@@ -25,8 +25,6 @@ export default function ProductCard({ description, name, id }) {
     return 0
   })
 
-  console.log(amount)
-
   return (
     <div className={style.card}>
       <div className={style.bodyCard}>
@@ -43,8 +41,8 @@ export default function ProductCard({ description, name, id }) {
         </div>
       </div>
       <div className={style.options}>
-        {!amount ? (
-          <AddBtn addAmount={addAmount} product={product} />
+        {!amount || amount < 1 ? (
+          <AddBtn addAmount={addAmount} product={product} id={product.id} />
         ) : (
           <ManageAmount
             unaddAmount={unaddAmount}
