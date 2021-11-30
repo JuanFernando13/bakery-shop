@@ -9,10 +9,11 @@ import {
 import {
   deleteProduct,
   incrementAmount,
-  decrementAmount
+  decrementAmount,
+  incrementPrice
 } from '../../features/cart/productReducer'
 
-export default function ManageAmount({ unaddAmount, id }) {
+export default function ManageAmount({ unaddAmount, id, price }) {
   const dispatch = useDispatch()
 
   const { amount } = useSelector(state => {
@@ -26,6 +27,7 @@ export default function ManageAmount({ unaddAmount, id }) {
   const AddAmount = () => {
     dispatch(incrementTotalAmount())
     dispatch(incrementAmount({ id }))
+    dispatch(incrementPrice({ id, price }))
   }
 
   const unAddAmount = () => {
@@ -34,6 +36,7 @@ export default function ManageAmount({ unaddAmount, id }) {
       dispatch(deleteProduct({ id }))
     } else {
       dispatch(decrementAmount({ id }))
+      dispatch(incrementPrice({ id, price }))
     }
     dispatch(decrementTotalAmount())
   }

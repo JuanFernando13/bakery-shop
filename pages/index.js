@@ -11,8 +11,13 @@ export default function Home({ products }) {
     <>
       <NavBar />
       <RenderCards>
-        {products.map(({ _id, description }) => (
-          <ProductCard key={_id} description={description} id={_id} />
+        {products.map(({ _id, description, price }) => (
+          <ProductCard
+            key={_id}
+            description={description}
+            id={_id}
+            price={price}
+          />
         ))}
         <Button>
           <Plus />

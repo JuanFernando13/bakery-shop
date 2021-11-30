@@ -23,11 +23,22 @@ export const productSlice = createSlice({
       if (!product) return state
       product.amount = --product.amount
       return state
+    },
+    incrementPrice: (state, action) => {
+      const product = state?.find(el => el.id === action.payload.id)
+      if (!product) return state
+      product.price = product.amount * action.payload.price
+      return state
     }
   }
 })
 
-export const { addProduct, deleteProduct, incrementAmount, decrementAmount } =
-  productSlice.actions
+export const {
+  addProduct,
+  deleteProduct,
+  incrementAmount,
+  decrementAmount,
+  incrementPrice
+} = productSlice.actions
 
 export default productSlice.reducer
