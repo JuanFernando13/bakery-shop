@@ -69,9 +69,6 @@ export default function WithProducts() {
           />
         ))}
       </RenderCards>
-      <Button>
-        <Plus />
-      </Button>
       <Link href='/'>
         <a>
           <Button place={'92%'}>

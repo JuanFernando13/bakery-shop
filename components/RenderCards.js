@@ -1,4 +1,8 @@
 import style from './RenderCards.module.css'
-export default function RenderCards({ children }) {
+import { memo } from 'react'
+
+function RenderCards({ children }) {
   return <section className={style.renderCards}>{children}</section>
 }
+
+export default memo(RenderCards)

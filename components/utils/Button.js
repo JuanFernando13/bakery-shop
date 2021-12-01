@@ -1,6 +1,18 @@
 import styleCard from '../ProductCard/ProductCard.module.css'
 
-export default function Button({ children, place, y }) {
+export default function Button({
+  children,
+  place,
+  y,
+  setPage,
+  page,
+  maxPage
+}) {
+  const handlerPage = () => {
+    place
+      ? page > 1 && setPage(page - 1)
+      : page < maxPage && setPage(page + 1)
+  }
   return (
     <button
       className={styleCard.add}
@@ -11,6 +23,7 @@ export default function Button({ children, place, y }) {
         right: `${place ? place : '70px'}`,
         top: `${y ? y : '50%'}`
       }}
+      onClick={handlerPage}
     >
       {children}
     </button>
