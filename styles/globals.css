@@ -3,8 +3,8 @@
 :root {
   --primary-color: #725050;
   --secondary-color: #866969;
-  --tertiary-color: #BEA1A1;
-  --quaternary-color: #FFF9F9;
+  --tertiary-color: #bea1a1;
+  --quaternary-color: #fff9f9;
 }
 * {
   margin: 0;
@@ -15,8 +15,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Raleway',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: var(--quaternary-color);
 }
 

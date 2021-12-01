@@ -68,17 +68,17 @@ export default function WithProducts() {
             price={price}
           />
         ))}
-        <Button>
-          <Plus />
-        </Button>
-        <Link href='/'>
-          <a>
-            <Button place={'92%'}>
-              <Back />
-            </Button>
-          </a>
-        </Link>
       </RenderCards>
+      <Button>
+        <Plus />
+      </Button>
+      <Link href='/'>
+        <a>
+          <Button place={'92%'}>
+            <Back />
+          </Button>
+        </a>
+      </Link>
       <a href={sentOrder()}>
         <section className={style.payContainer}>
           <h3 className={style.totalPay}>${totalPay}</h3>

@@ -10,19 +10,19 @@ export default function Home({ products }) {
   return (
     <>
       <NavBar />
-      <RenderCards>
-        {products.map(({ _id, description, price }) => (
-          <ProductCard
-            key={_id}
-            description={description}
-            id={_id}
-            price={price}
-          />
-        ))}
-        <Button>
-          <Plus />
-        </Button>
-      </RenderCards>
+        <RenderCards>
+          {products.map(({ _id, description, price }) => (
+            <ProductCard
+              key={_id}
+              description={description}
+              id={_id}
+              price={price}
+            />
+          ))}
+        </RenderCards>
+      <Button>
+        <Plus />
+      </Button>
     </>
   )
 }
@@ -30,7 +30,7 @@ export default function Home({ products }) {
 export async function getServerSideProps() {
   await dbConnect()
 
-  const result = await Products.find({})
+  const result = await Products.find({}).limit(4)
   const products = result.map(doc => {
     const product = doc.toObject()
     product._id = `${product._id}`
