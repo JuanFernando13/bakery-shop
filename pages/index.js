@@ -2,6 +2,7 @@ import NavBar from '../components/NavBar'
 import ProductCard from '../components/ProductCard'
 import RenderCards from '../components/RenderCards'
 import Button from '../components/utils/Button'
+import Spinner from '../components/utils/Spinner'
 import Plus from '../components/icons/Plus'
 import Minus from '../components/icons/Minus'
 import useSWR from 'swr'
@@ -22,7 +23,7 @@ export default function Home() {
     <>
       <NavBar />
       {!products ? (
-        <div>Loading...</div>
+        <Spinner/>
       ) : (
         <RenderCards>
           {products.map(({ _id, description, price }) => (
