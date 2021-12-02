@@ -37,7 +37,7 @@ export default function Home() {
         </RenderCards>
       )}
       {page === 1 || (
-        <Button place={'92%'} setPage={setPage} page={page}>
+        <Button place={'90%'} setPage={setPage} page={page}>
           <Minus />
         </Button>
       )}

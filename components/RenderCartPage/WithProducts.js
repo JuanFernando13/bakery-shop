@@ -71,12 +71,12 @@ export default function WithProducts() {
       </RenderCards>
       <Link href='/'>
         <a>
-          <Button place={'92%'}>
+          <Button place={'90%'}>
             <Back />
           </Button>
         </a>
       </Link>
-      <a href={sentOrder()}>
+      <a href={sentOrder()} target='_blank' rel='noreferrer'>
         <section className={style.payContainer}>
           <h3 className={style.totalPay}>${totalPay}</h3>
           <Button y='80vh'>

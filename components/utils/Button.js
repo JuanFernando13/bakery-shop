@@ -1,4 +1,5 @@
 import styleCard from '../ProductCard/ProductCard.module.css'
+import style from './utils.module.css'
 
 export default function Button({
   children,
@@ -15,14 +16,14 @@ export default function Button({
   }
   return (
     <button
-      className={styleCard.add}
-      style={{
+      className={`${styleCard.add} ${style.sentOrder}`}
+      /* style={{
         width: '50px',
         height: '50px',
         position: 'fixed',
         right: `${place ? place : '70px'}`,
         top: `${y ? y : '50%'}`
-      }}
+      }} */
       onClick={handlerPage}
     >
       {children}
