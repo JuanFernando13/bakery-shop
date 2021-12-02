@@ -2,7 +2,6 @@ import RenderCards from '../RenderCards'
 import ProductCard from '../ProductCard'
 import style from './RenderCart.module.css'
 import Button from '../utils/Button'
-import Plus from '../icons/Plus'
 import Back from '../icons/Back'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
@@ -48,17 +47,26 @@ export default function WithProducts() {
 
   return (
     <>
-      <h2
-        style={{
-          marginBottom: '32px',
-          textAlign: 'center',
-          fontSize: '32px',
-          color: '#866969',
-          fontWeight: 'bolder'
-        }}
-      >
-        Carrito de Compras
-      </h2>
+      <header>
+        <Link href='/'>
+          <a>
+            <Button type='back'>
+              <Back />
+            </Button>
+          </a>
+        </Link>
+        <h2
+          style={{
+            marginBottom: '32px',
+            textAlign: 'center',
+            fontSize: '32px',
+            color: '#866969',
+            fontWeight: 'bolder'
+          }}
+        >
+          Carrito de Compras
+        </h2>
+      </header>
       <RenderCards>
         {products.map(({ id, description, price }) => (
           <ProductCard
@@ -69,17 +77,15 @@ export default function WithProducts() {
           />
         ))}
       </RenderCards>
-      <Link href='/'>
-        <a>
-          <Button place={'90%'}>
-            <Back />
-          </Button>
-        </a>
-      </Link>
-      <a href={sentOrder()} target='_blank' rel='noreferrer'>
-        <section className={style.payContainer}>
+      <a
+        href={sentOrder()}
+        target='_blank'
+        rel='noreferrer'
+        className={style.payContainer}
+      >
+        <section className={style.realPayContainer}>
           <h3 className={style.totalPay}>${totalPay}</h3>
-          <Button y='80vh'>
+          <Button type>
             <Pay />
           </Button>
         </section>

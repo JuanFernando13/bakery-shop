@@ -7,6 +7,7 @@ import Plus from '../components/icons/Plus'
 import Minus from '../components/icons/Minus'
 import useSWR from 'swr'
 import { useState } from 'react'
+import Layaout from '../components/Layout'
 
 const fetcher = url =>
   fetch(url)
@@ -21,31 +22,35 @@ export default function Home() {
 
   return (
     <>
-      <NavBar />
-      {!products ? (
-        <Spinner/>
-      ) : (
-        <RenderCards>
-          {products.map(({ _id, description, price }) => (
-            <ProductCard
-              key={_id}
-              description={description}
-              id={_id}
-              price={price}
-            />
-          ))}
-        </RenderCards>
-      )}
-      {page === 1 || (
-        <Button place={'90%'} setPage={setPage} page={page}>
-          <Minus />
-        </Button>
-      )}
-      {page === maxPage || (
-        <Button setPage={setPage} page={page} maxPage={maxPage}>
-          <Plus />
-        </Button>
-      )}
+      <Layaout titlePage="Home">
+        <NavBar />
+        {!products ? (
+          <Spinner />
+        ) : (
+          <RenderCards>
+            {products.map(({ _id, description, price }) => (
+              <ProductCard
+                key={_id}
+                description={description}
+                id={_id}
+                price={price}
+              />
+            ))}
+          </RenderCards>
+        )}
+        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          {page === 1 || (
+            <Button setPage={setPage} page={page} type='minus'>
+              <Minus />
+            </Button>
+          )}
+          {page === maxPage || (
+            <Button setPage={setPage} page={page} maxPage={maxPage} type='more'>
+              <Plus />
+            </Button>
+          )}
+        </div>
+      </Layaout>
     </>
   )
 }

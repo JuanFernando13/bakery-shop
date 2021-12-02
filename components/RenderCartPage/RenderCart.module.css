@@ -15,6 +15,7 @@
 .empty {
   font-size: 32px;
   color: var(--primary-color);
+  text-align: center;
 }
 .continueShop {
   font-weight: 400;
@@ -34,15 +35,17 @@
   font-family: 'Raleway';
 }
 .payContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 100px;
-  width: 150px;
+  height: calc(max-content + 40px);
   position: fixed;
   bottom: 30px;
-  right: 20px;
+  right: 100px;
+}
+.realPayContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 120px;
 }
 .totalPay {
   border-radius: 10px;
@@ -51,4 +54,14 @@
   color: var(--quaternary-color);
   user-select: none;
   font-size: 18px;
+}
+@media (max-width: 800px) {
+  .payContainer {
+    right: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .payContainer {
+    position: static;
+  }
 }

@@ -6,9 +6,7 @@ import Layaout from '../components/Layout'
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <Layaout titlePage="Home">
-        <Component {...pageProps} />
-      </Layaout>
+      <Component {...pageProps} />
     </Provider>
   )
 }
